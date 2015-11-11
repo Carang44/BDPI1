@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombreMedicamento: MyString
+  dosisMedicamento: MyString
+  fechaInicioMedicamento: MyText
+  intervaloMedicamento: MyString
+
+two:
+  nombreMedicamento: MyString
+  dosisMedicamento: MyString
+  fechaInicioMedicamento: MyText
+  intervaloMedicamento: MyString

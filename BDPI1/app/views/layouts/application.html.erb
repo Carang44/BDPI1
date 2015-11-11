@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BDPI1</title>
+  <title>QCare</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/flexboxgrid/6.1.1/flexboxgrid.min.css" type="text/css" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <header>
+    <nav class="be-red white large-padding">
+      <ul class="no-list row center-xs">
+        <li class="col-md">
+          <h1 class="no-margin" id="logo"><%= link_to "QCare", root_path %></h1>
+        </li>
+        <li class="col-md">
+          <%= link_to "Tratamientos", treatments_path %>
+        </li>
+        <li class="col-md">
+          <%= link_to "Citas", apointments_path %>
+        </li>
+        <% if user_signed_in? %>
+        <li class="col-md">
+          <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %>
+        </li>
+        <%else%>
+        <li class="col-md">
+          <%= link_to "Iniciar Sesión", new_user_session_path %>
+        </li>
+        <li class="col-md">
+          <%= link_to "Crear Cuenta", new_user_registration_path %>
+        </li>
+        <%end%>
+      </ul>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </header>
+  
 <%= yield %>
 
 </body>

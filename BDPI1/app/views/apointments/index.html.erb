@@ -1,0 +1,9 @@
+<% @apointment.each do |apoint| %>
+	<h1><%= link_to apoint.nombreCita, apoint %> - <%= link_to "Eliminar", apoint, method: :delete %></h1>
+	<div>
+		<%= apoint.fechaCita %>
+	</div>
+	<div>
+		<%= apoint.lugarCita %>
+	</div>
+<%end%>

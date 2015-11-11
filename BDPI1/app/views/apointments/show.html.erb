@@ -1,0 +1,10 @@
+<h1><%= @apointment.nombreCita %></h1>
+	<div>
+		<%= @apointment.fechaCita %>
+	</div>
+	<div>
+		<%= @apointment.lugarCita %>
+	</div>
+	<div>
+		<%= link_to "Editar", edit_apointment_path(@apointment) %>
+	</div>

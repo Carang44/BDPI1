@@ -1,0 +1,13 @@
+<h1><%= @treatment.nombreTratamiento %></h1>
+	<div>
+		<%= @treatment.descripcionTratamiento %>
+	</div>
+	<div>
+		<%= @treatment.fechaInicio %>
+	</div>
+	<div>
+		<%= @treatment.fechaFin %>
+	</div>
+	<div>
+		<%= link_to "Editar", edit_treatment_path(@treatment) %>
+	</div>

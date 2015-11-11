@@ -1,0 +1,23 @@
+<!-- <h1><%= name %> Medicamento</h1>
+<%= form_for([@treatment,@medicine]) do |f| %>
+	<% @medicine.errors.full_messages.each do |mensajes| %>
+	<div class="be-red white top-space">
+		* <%= mensajes %>
+	</div>
+	<%end%>
+	<div class="field">
+		<%= f.text_field :nombreMedicamento, placeholder: "Nombre del Medicamento", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :dosisMedicamento, placeholder: "Dosis del Medicamento", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :fechaInicioMedicamento, placeholder: "Fecha de Inicio del Medicamento", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :intervaloMedicamento, placeholder: "Intervalo del Medicamento", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.submit "Guardar", class:"btn be-red white" %>
+	</div>
+<%end%> -->

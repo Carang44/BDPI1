@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombreTratamiento: MyString
+  descripcionTratamiento: MyText
+  fechaInicio: MyText
+  fechaFin: MyText
+
+two:
+  nombreTratamiento: MyString
+  descripcionTratamiento: MyText
+  fechaInicio: MyText
+  fechaFin: MyText

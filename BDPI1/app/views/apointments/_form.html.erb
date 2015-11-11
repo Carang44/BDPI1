@@ -1,0 +1,20 @@
+<h1><%= name %>Citas</h1>
+<%= form_for(@apointment) do |f| %>
+	<% @apointment.errors.full_messages.each do |mensajes| %>
+	<div class="be-red white top-space">
+		* <%= mensajes %>
+	</div>
+	<%end%>
+	<div class="field">
+		<%= f.text_field :nombreCita, placeholder: "Nombre de la Cita", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :fechaCita, placeholder: "Fecha de la Cita", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :lugarCita, placeholder: "Lugar de la Cita", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.submit "Guardar", class:"btn be-red white" %>
+	</div>
+<%end%>
