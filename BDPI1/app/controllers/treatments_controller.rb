@@ -1,12 +1,13 @@
 class TreatmentsController < ApplicationController
-	#before_action :validate_user, except: [:show, :index, :new, :create, :edit]e
-	
+	#before_action :validate_user, except: [:show, :index, :new, :create, :edit]
+	before_action :set_patient
 	def index
 		@treatment = Treatment.all
 	end
 
 	def show
 		@treatment = Treatment.find(params[:id])
+		@medicine = Medicine.new
 	end
 
 	def new
@@ -18,9 +19,10 @@ class TreatmentsController < ApplicationController
 	end
 
 	def create
-		@treatment = Treatment.new(treatment_params)
+		@treatment = @patient.treatments.new(treatment_params)
+		@treatment.patient = @patient
 		if @treatment.save
-			redirect_to @treatment
+			redirect_to @treatment.patient
 		else
 			render :new
 		end
@@ -29,19 +31,23 @@ class TreatmentsController < ApplicationController
 	def destroy
 		@treatment = Treatment.find(params[:id])
 		@treatment.destroy
-		redirect_to @treatment
+		redirect_to @patient
 	end
 
 	def update
 		@treatment = Treatment.find(params[:id])
 		if @treatment.update(treatment_params)
-			redirect_to @treatment
+			redirect_to @treatment.patient
 		else
 			render :edit
 		end
 	end
 
 	private
+
+	def set_patient
+		@patient = Patient.find(params[:patient_id])
+	end 
 
 	def validate_user
 		redirect_to new_user_session_path, notice: "Es Necesario Iniciar Sesión"

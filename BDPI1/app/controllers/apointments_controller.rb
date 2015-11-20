@@ -1,6 +1,8 @@
 class ApointmentsController < ApplicationController
+	#before_action :validate_user, except: [:show, :index, :new, :create, :edit]
+	before_action :set_patient
 	def index
-		@apointment = current_user.apointment.all
+		@apointment = Apointment.all
 	end
 
 	def show
@@ -16,9 +18,10 @@ class ApointmentsController < ApplicationController
 	end
 
 	def create
-		@apointment = Apointment.new(apointment_params)
+		@apointment = @patient.apointments.new(apointment_params)
+		@apointment.patient = @patient
 		if @apointment.save
-			redirect_to @apointment
+			redirect_to @apointment.patient
 		else
 			render :new
 		end
@@ -33,7 +36,7 @@ class ApointmentsController < ApplicationController
 	def update
 		@apointment = Apointment.find(params[:id])
 		if @apointment.update(apointment_params)
-			redirect_to @apointment
+			redirect_to @patient
 		else
 			render :edit
 		end
@@ -41,8 +44,11 @@ class ApointmentsController < ApplicationController
 
 	private
 
+	def set_patient
+		@patient = Patient.find(params[:patient_id])
+	end 
 	def apointment_params
-		params.require(:apointment).permit(:fechaCita,
+		params.require(:apointment).permit(:nombreCita, :fechaCita,
 			:lugarCita)
 	end
 end

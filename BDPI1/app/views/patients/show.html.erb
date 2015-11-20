@@ -1,0 +1,34 @@
+<div>
+		<%= link_to "Editar", edit_patient_path(@patient), class:"btn be-red white" %>
+	</div>
+<h1><%= @patient.nombrePaciente %></h1>
+	<div>
+		<%= @patient.cedula %>
+	</div>
+	<div>
+		<%= @patient.correo %>
+	</div>
+	<div>
+		<h3>Citas</h3>
+		<%= render "apointments/form" %>
+		<ul>
+			<% @patient.apointments.each do |cit|%>
+			<li>
+				<%= cit.nombreCita%>
+			</li>
+			<%end%>
+		</ul>
+	</div>
+	<div>
+		<h3>Tratamientos</h3>
+		<%= render "treatments/form" %>
+		<ul>
+			<% @patient.treatments.each do |tre|%>
+			<li>
+				<%= tre.nombreTratamiento%>
+			</li>
+			<%end%>
+		</ul>
+	</div>
+	
+	

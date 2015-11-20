@@ -1,5 +1,8 @@
+<div>
+	<h1><%= link_to "Crear Cita", new_apointment_path, class:"btn be-red white" %></h1>
+</div>
 <% @apointment.each do |apoint| %>
-	<h1><%= link_to apoint.nombreCita, apoint %> - <%= link_to "Eliminar", apoint, method: :delete %></h1>
+	<h1><%= link_to apoint.nombreCita, apoint %> - <%= button_to "Eliminar", apoint, method: :delete %></h1>
 	<div>
 		<%= apoint.fechaCita %>
 	</div>

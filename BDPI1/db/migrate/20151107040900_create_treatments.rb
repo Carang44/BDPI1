@@ -5,10 +5,6 @@ class CreateTreatments < ActiveRecord::Migration
       t.text :descripcionTratamiento
       t.text :fechaInicio
       t.text :fechaFin
-      t.string :nombreMedicamento
-      t.string :dosisMedicamento
-      t.text :fechaInicioMedicamento
-      t.string :intervaloMedicamento
 
       t.timestamps null: false
     end

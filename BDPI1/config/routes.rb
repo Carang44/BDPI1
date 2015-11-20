@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   #get 'welcome/index'
 
-  resources :treatments do
-    resources :medicines
+  resources :patients do
+    resources :treatments do
+      resources :medicines
+    end
+    resources :apointments
   end
-  resources :apointments
 =begin
     get "/medicines"
     post "/medicines"

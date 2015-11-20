@@ -1,3 +1,6 @@
+<div>
+		<%= link_to "Editar", edit_apointment_path(@apointment), class:"btn be-red white" %>
+	</div>
 <h1><%= @apointment.nombreCita %></h1>
 	<div>
 		<%= @apointment.fechaCita %>
@@ -5,6 +8,4 @@
 	<div>
 		<%= @apointment.lugarCita %>
 	</div>
-	<div>
-		<%= link_to "Editar", edit_apointment_path(@apointment) %>
-	</div>
+	

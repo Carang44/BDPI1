@@ -1,5 +1,4 @@
-<h1><%= name %>Citas</h1>
-<%= form_for(@apointment) do |f| %>
+<%= form_for([@patient,@apointment]) do |f| %>
 	<% @apointment.errors.full_messages.each do |mensajes| %>
 	<div class="be-red white top-space">
 		* <%= mensajes %>

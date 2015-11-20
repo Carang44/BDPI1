@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107162458) do
+ActiveRecord::Schema.define(version: 20151119211411) do
 
   create_table "apointments", force: :cascade do |t|
+    t.string   "nombreCita"
     t.string   "lugarCita"
     t.text     "fechaCita"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.integer  "patient_id"
   end
 
   add_index "apointments", ["fechaCita"], name: "index_apointments_on_fechaCita"
-  add_index "apointments", ["user_id"], name: "index_apointments_on_user_id"
+  add_index "apointments", ["patient_id"], name: "index_apointments_on_patient_id"
 
   create_table "medicines", force: :cascade do |t|
     t.string   "nombreMedicamento"
@@ -37,6 +38,17 @@ ActiveRecord::Schema.define(version: 20151107162458) do
   add_index "medicines", ["nombreMedicamento"], name: "index_medicines_on_nombreMedicamento"
   add_index "medicines", ["treatment_id"], name: "index_medicines_on_treatment_id"
 
+  create_table "patients", force: :cascade do |t|
+    t.string   "nombrePaciente"
+    t.string   "cedula"
+    t.string   "correo"
+    t.string   "contrasena"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "patients", ["nombrePaciente"], name: "index_patients_on_nombrePaciente"
+
   create_table "treatments", force: :cascade do |t|
     t.string   "nombreTratamiento"
     t.text     "descripcionTratamiento"
@@ -44,10 +56,10 @@ ActiveRecord::Schema.define(version: 20151107162458) do
     t.text     "fechaFin"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "user_id"
+    t.integer  "patient_id"
   end
 
-  add_index "treatments", ["user_id"], name: "index_treatments_on_user_id"
+  add_index "treatments", ["patient_id"], name: "index_treatments_on_patient_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

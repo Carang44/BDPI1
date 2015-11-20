@@ -1,3 +1,6 @@
+<div>
+	<%= link_to "Editar", [:edit, @patient, @treatment], class:"btn be-red white"%>
+</div>
 <h1><%= @treatment.nombreTratamiento %></h1>
 	<div>
 		<%= @treatment.descripcionTratamiento %>
@@ -9,5 +12,7 @@
 		<%= @treatment.fechaFin %>
 	</div>
 	<div>
-		<%= link_to "Editar", edit_treatment_path(@treatment) %>
+		<h3>Medicinas</h3>
+		<%= render "medicines/form" %>
 	</div>
+	

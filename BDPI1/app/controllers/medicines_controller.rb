@@ -17,8 +17,8 @@ class MedicinesController < ApplicationController
 	end
 
 	def create
-		@medicine = current_user.medicine.new(medicine_params)
-		@medicine.treatment = @treatment
+		@medicine = @treatment.medicines.new(medicine_params)
+		@medicine.treatment.patient = @treatment.patient
 		if @medicine.save
 			redirect_to @medicine.treatment
 		else
@@ -47,13 +47,13 @@ class MedicinesController < ApplicationController
 		@treatment = Treatment.find(params[:treatment_id])
 	end
 
-# 	def set_medicine
-# 		@medicine = Medicine.find(params[:id])
-# 	end
+	def set_medicine
+ 		@medicine = Medicine.find(params[:id])
+	end
 
-# 	def medicine_params
-# 		params.require(:medicine).permit(:nombreMedicamento,
-# 			:dosisMedicamento, :fechaInicioMedicamento,
-# 			:intervaloMedicamento)
-# 	end
-# end
+ 	def medicine_params
+ 		params.require(:medicine).permit(:nombreMedicamento,
+ 			:dosisMedicamento, :fechaInicioMedicamento,
+ 			:intervaloMedicamento)
+ 	end
+ end

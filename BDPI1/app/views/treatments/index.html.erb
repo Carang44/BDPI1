@@ -1,5 +1,5 @@
 <div>
-	<h1><%= link_to "Crear Tratamiento", new_treatment_path, class:"btn be-red white" %></h1>
+	<h1><%= link_to "Crear Tratamiento", [:new, @patient, @treatment], class:"btn be-red white" %></h1>
 </div>
 <% @treatment.each do |treats| %>
 	<h1><%= link_to treats.nombreTratamiento, treats %> - <%= link_to "Eliminar", treats, method: :delete %></h1>

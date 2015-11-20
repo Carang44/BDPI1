@@ -1,0 +1,12 @@
+<div>
+	<h1><%= link_to "Crear Paciente", new_patient_path, class:"btn be-red white" %></h1>
+</div>
+<% @patient.each do |pat| %>
+	<h1><%= link_to pat.nombrePaciente, pat %> - <%= link_to "Eliminar", pat, method: :delete %></h1>
+	<div>
+		<%= pat.cedula %>
+	</div>
+	<div>
+		<%= pat.correo %>
+	</div>
+<%end%>

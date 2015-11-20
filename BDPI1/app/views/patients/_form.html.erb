@@ -1,0 +1,22 @@
+<%= form_for(@patient) do |f| %>
+	<% @patient.errors.full_messages.each do |mensajes| %>
+	<div class="be-red white top-space">
+		* <%= mensajes %>
+	</div>
+	<%end%>
+	<div class="field">
+		<%= f.text_field :nombrePaciente, placeholder: "Nombre de el paciente", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :cedula, placeholder: "Cedula de el paciente", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.text_field :correo, placeholder: "Correo del paciente", class:"form-control" %>
+	</div>
+		<div class="field">
+		<%= f.text_field :contrasena, placeholder: "Contraseña del paciente", class:"form-control" %>
+	</div>
+	<div class="field">
+		<%= f.submit "Guardar", class:"btn be-red white" %>
+	</div>
+<%end%>
