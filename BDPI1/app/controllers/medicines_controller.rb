@@ -18,7 +18,7 @@ class MedicinesController < ApplicationController
 
 	def create
 		@medicine = @treatment.medicines.new(medicine_params)
-		@medicine.treatment.patient = @treatment.patient
+		@medicine.treatment = @treatment
 		if @medicine.save
 			redirect_to @medicine.treatment
 		else
